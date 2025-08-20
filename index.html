@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morgan.k - Développeur Frontend</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animation CSS (via Tailwind) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-indigo-600 hover:text-indigo-800 transition">Morgan.k</a>
+            
+            <!-- Menu -->
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="text-gray-700 hover:text-indigo-600 transition">Home</a></li>
+                    <li><a href="#services" class="text-gray-700 hover:text-indigo-600 transition">Services</a></li>
+                    <li><a href="#portfolio" class="text-gray-700 hover:text-indigo-600 transition">Portfolio</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-indigo-600 transition">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Menu Mobile (icône) -->
+            <button class="md:hidden text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Section Hero (Home) -->
+    <section id="home" class="container mx-auto px-6 py-20 flex flex-col min-h-screen  md:flex-row items-center gap-12">
+        <!-- Texte + CTA -->
+        <div class="md:w-1/2">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                Salut, je suis <span class="text-indigo-600">Morgan</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-6 max-w-2xl">
+                Développeur Frontend avec 2 ans de formation à <span class="font-semibold">KFOKAM48</span> et 2 ans d'expérience pro, 
+                spécialisé en <span class="text-indigo-600">React, Vue.js et UI/UX</span>. J'ai boosté un site e-commerce de 
+                <span class="font-semibold">+30% de conversion</span> et conçu un dashboard SaaS sur mesure.
+            </p>
+            
+            <a href="#contact" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition shadow-lg">
+                Discutons de votre projet
+            </a>
+        </div>
+        
+        
+        
+        <!-- Photo de profil animée -->
+        <div class="md:w-1/2 flex justify-center">
+            <img 
+                src="images/profil.jpg" alt="" class="rounded-full w-61 h-61 object-cover border-4 border-indigo-100 shadow-xl animate-float">
+        </div>
+      </section>
+
+    <!-- Section Services -->
+    <section id="services" class="bg-gray-100 py-16 min-h-screen flex items-center justify-center">
+      <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-bold text-center mb-12">Mes Services</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+              <!-- Service 1 -->
+              <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition text-center">
+                  <div class="flex justify-center mb-4">
+                      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" 
+                           alt="Développement Web" 
+                           class="w-16 h-16 object-contain">
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Développement Web</h3>
+                  <p class="text-gray-600">Création de sites vitrines ou applications avec React, Tailwind, etc.</p>
+              </div>
+  
+              <!-- Service 2 -->
+              <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition text-center">
+                  <div class="flex justify-center mb-4">
+                      <img src="https://cdn-icons-png.flaticon.com/512/2906/2906276.png" 
+                           alt="UI/UX Design" 
+                           class="w-16 h-16 object-contain">
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">UI/UX Design</h3>
+                  <p class="text-gray-600">Designs pensés pour l'utilisateur avec Figma ou Adobe XD.</p>
+              </div>
+  
+              <!-- Service 3 -->
+              <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition text-center">
+                  <div class="flex justify-center mb-4">
+                      <img src="https://cdn-icons-png.flaticon.com/512/1157/1157109.png" 
+                           alt="Optimisation SEO" 
+                           class="w-16 h-16 object-contain">
+                  </div>
+                  <h3 class="text-xl font-semibold mb-3">Optimisation SEO</h3>
+                  <p class="text-gray-600">Amélioration des performances et référencement naturel.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+
+    <!-- Section Portfolio -->
+    <section id="portfolio" class="py-16 flex items-center justify-center min-h-screen">
+      <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-bold text-center mb-12">Mon Portfolio</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <!-- Projet 1 -->
+              <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                  <img src="images/e-commerce-img.webp" alt="Projet 1" class="w-full h-48 object-cover">
+                  <div class="p-6">
+                      <h3 class="font-semibold text-lg mb-2">Site E-commerce</h3>
+                      <p class="text-gray-600">React + Tailwind CSS</p>
+                  </div>
+              </div>
+  
+              <!-- Projet 2 -->
+              <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                  <img src="images/restau.jpg" alt="Projet 2" class="w-full h-48 object-cover">
+                  <div class="p-6">
+                      <h3 class="font-semibold text-lg mb-2">Application Restaurant</h3>
+                      <p class="text-gray-600">React + Tailwind CSS</p>
+                  </div>
+              </div>
+  
+              <!-- Projet 3 -->
+              <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                  <img src="images/reseau.jpeg" alt="Projet 3" class="w-full h-48 object-cover">
+                  <div class="p-6">
+                      <h3 class="font-semibold text-lg mb-2">Réseau Social</h3>
+                      <p class="text-gray-600">Firebase + React</p>
+                  </div>
+              </div>
+  
+              <!-- Projet 4 -->
+              <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                  <img src="images/dashboard.jpeg" alt="Projet 4" class="w-full h-48 object-cover">
+                  <div class="p-6">
+                      <h3 class="font-semibold text-lg mb-2">Dashboard Admin</h3>
+                      <p class="text-gray-600">Next.js + Chart.js</p>
+                  </div>
+              </div>
+  
+              <!-- Projet 5 -->
+              <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                  <img src="images/jeu-mobil.jpeg" alt="Projet 5" class="w-full h-48 object-cover">
+                  <div class="p-6">
+                      <h3 class="font-semibold text-lg mb-2">Jeu Mobile</h3>
+                      <p class="text-gray-600">Unity + C#</p>
+                  </div>
+              </div>
+  
+              <!-- Projet 6 -->
+              <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                  <img src="images/blog.jpeg" alt="Projet 6" class="w-full h-48 object-cover">
+                  <div class="p-6">
+                      <h3 class="font-semibold text-lg mb-2">Blog Personnel</h3>
+                      <p class="text-gray-600">Gatsby + Markdown</p>
+                  </div>
+              </div>
+  
+              <!-- Projet 7 -->
+              <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                  <img src="images/extension.jpeg" alt="Projet 7" class="w-full h-48 object-cover">
+                  <div class="p-6">
+                      <h3 class="font-semibold text-lg mb-2">Extension Chrome</h3>
+                      <p class="text-gray-600">JavaScript + Manifest V3</p>
+                  </div>
+              </div>
+  
+              <!-- Projet 8 -->
+              <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                  <img src="images/api-rest.jpeg" alt="Projet 8" class="w-full h-48 object-cover">
+                  <div class="p-6">
+                      <h3 class="font-semibold text-lg mb-2">API REST</h3>
+                      <p class="text-gray-600">Node.js + Express</p>
+                  </div>
+              </div>
+  
+              <!-- Projet 9 -->
+              <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                  <img src="images/Portfolio.jpg" alt="Projet 9" class="w-full h-48 object-cover">
+                  <div class="p-6">
+                      <h3 class="font-semibold text-lg mb-2">Portfolio Artistique</h3>
+                      <p class="text-gray-600">Three.js + GSAP</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="bg-indigo-600 text-white py-16 min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Contactez-moi</h2>
+            <form class="max-w-2xl mx-auto">
+                <div class="mb-4">
+                    <input type="text" placeholder="Votre nom" class="w-full px-4 py-3 rounded-lg bg-indigo-500 border border-indigo-400 placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-white">
+                </div>
+                <div class="mb-4">
+                    <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg bg-indigo-500 border border-indigo-400 placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-white">
+                </div>
+                <div class="mb-6">
+                    <textarea placeholder="Votre message" rows="4" class="w-full px-4 py-3 rounded-lg bg-indigo-500 border border-indigo-400 placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-white"></textarea>
+                </div>
+                <button type="submit" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition w-full md:w-auto">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2023 Morgan.k - Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
