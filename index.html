@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morgan.k - Développeur Frontend</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
     <!-- Animation CSS (via Tailwind) -->
     <script>
         tailwind.config = {
@@ -23,33 +24,80 @@
             }
         }
     </script>
+
+<style>
+    body.dark-mode {
+      background-color: #1f2937; /* bg-gray-900 */
+      color: #fff; /* blanc */
+    }
+    body.dark-mode header {
+      background-color: #111827; /* bg-gray-900 ou une autre couleur sombre */
+      color: #fff;
+    }
+    body.dark-mode .text-gray-700,
+    body.dark-mode .text-gray-800,
+    body.dark-mode .text-gray-600 {
+      color: #fff; /* Change toutes les couleurs de texte grises en blanc */
+    }
+    body.dark-mode .bg-white {
+      background-color: #374151; /* Couleur de fond sombre pour les éléments blancs */
+    }
+    body.dark-mode .bg-gray-100 {
+      background-color: #1f2937; /* Couleur de fond sombre pour les éléments gris clair */
+    }
+    body.dark-mode .bg-gray-50 {
+      background-color: #111827; /* Couleur de fond sombre pour le body */
+    }
+    /* Animation pour le menu mobile */
+    .mobile-menu {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navbar -->
-    <header class="bg-white shadow-sm sticky top-0 z-10">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 h-[10vh] flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="">
                 <img class="w-[200px]" src="images/Mon-logo.png" alt="">
             </a>
             
-            <!-- Menu -->
+            <!-- Menu Desktop -->
             <nav class="hidden md:block">
-                <ul class="flex space-x-8">
+                <ul class="flex items-center justify-center space-x-8">
                     <li><a href="#home" class="text-gray-700 hover:text-indigo-600 transition">Home</a></li>
                     <li><a href="#services" class="text-gray-700 hover:text-indigo-600 transition">Services</a></li>
                     <li><a href="#portfolio" class="text-gray-700 hover:text-indigo-600 transition">Portfolio</a></li>
                     <li><a href="#contact" class="text-gray-700 hover:text-indigo-600 transition">Contact</a></li>
                 </ul>
             </nav>
-            
-            <!-- Menu Mobile (icône) -->
-            <button class="md:hidden text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
+
+            <!-- Contrôles (mode sombre + menu burger) -->
+            <div class="flex items-center">
+                <button id="color-toggle" class="ml-4 focus:outline-none" aria-label="Changer la couleur">
+                    <!-- Icône soleil (clair) -->
+                    <i id="icon-sun" class="ri-sun-line ri-xl"></i>
+                    <!-- Icône lune (sombre), cachée par défaut -->
+                    <i id="icon-moon" class="ri-moon-line ri-xl hidden"></i>
+                </button>
+                
+              <!-- Bouton menu burger -->
+<button id="menu-toggle" class="md:hidden text-gray-700 ml-4">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+</button>
+
+<!-- Menu mobile -->
+<div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg absolute top-full left-0 w-full hidden">
+    <ul class="flex flex-row justify-center items-center py-4">
+        <li><a href="#home" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 hover:text-indigo-600 transition">Home</a></li>
+        <li><a href="#services" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 hover:text-indigo-600 transition">Services</a></li>
+        <li><a href="#portfolio" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 hover:text-indigo-600 transition">Portfolio</a></li>
+        <li><a href="#contact" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 hover:text-indigo-600 transition">Contact</a></li>
+    </ul>
+</div>
     </header>
 
     <!-- Section Hero (Home) -->
@@ -82,7 +130,7 @@
     <!-- Section Services -->
     <section id="services" class="bg-gray-100 py-16 min-h-screen flex items-center justify-center">
       <div class="container mx-auto px-6">
-          <h2 class="text-3xl font-bold text-center mb-12">Mes Services</h2>
+          <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Mes Services</h2>
           <div class="grid md:grid-cols-3 gap-8">
               <!-- Service 1 -->
               <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition text-center">
@@ -91,7 +139,7 @@
                            alt="Développement Web" 
                            class="w-16 h-16 object-contain">
                   </div>
-                  <h3 class="text-xl font-semibold mb-3">Développement Web</h3>
+                  <h3 class="text-xl font-semibold mb-3 text-gray-800">Développement Web</h3>
                   <p class="text-gray-600">Création de sites vitrines ou applications avec React, Tailwind, etc.</p>
               </div>
   
@@ -102,7 +150,7 @@
                            alt="UI/UX Design" 
                            class="w-16 h-16 object-contain">
                   </div>
-                  <h3 class="text-xl font-semibold mb-3">UI/UX Design</h3>
+                  <h3 class="text-xl font-semibold mb-3 text-gray-800">UI/UX Design</h3>
                   <p class="text-gray-600">Designs pensés pour l'utilisateur avec Figma ou Adobe XD.</p>
               </div>
   
@@ -113,7 +161,7 @@
                            alt="Optimisation SEO" 
                            class="w-16 h-16 object-contain">
                   </div>
-                  <h3 class="text-xl font-semibold mb-3">Optimisation SEO</h3>
+                  <h3 class="text-xl font-semibold mb-3 text-gray-800">Optimisation SEO</h3>
                   <p class="text-gray-600">Amélioration des performances et référencement naturel.</p>
               </div>
           </div>
@@ -124,13 +172,13 @@
     <!-- Section Portfolio -->
     <section id="portfolio" class="py-16 flex items-center justify-center min-h-screen">
       <div class="container mx-auto px-6">
-          <h2 class="text-3xl font-bold text-center mb-12">Mon Portfolio</h2>
+          <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Mon Portfolio</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <!-- Projet 1 -->
               <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
                   <img src="images/e-commerce-img.webp" alt="Projet 1" class="w-full h-48 object-cover">
                   <div class="p-6">
-                      <h3 class="font-semibold text-lg mb-2">Site E-commerce</h3>
+                      <h3 class="font-semibold text-lg mb-2 text-gray-800">Site E-commerce</h3>
                       <p class="text-gray-600">React + Tailwind CSS</p>
                   </div>
               </div>
@@ -139,7 +187,7 @@
               <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
                   <img src="images/restau.jpg" alt="Projet 2" class="w-full h-48 object-cover">
                   <div class="p-6">
-                      <h3 class="font-semibold text-lg mb-2">Application Restaurant</h3>
+                      <h3 class="font-semibold text-lg mb-2 text-gray-800">Application Restaurant</h3>
                       <p class="text-gray-600">React + Tailwind CSS</p>
                   </div>
               </div>
@@ -148,7 +196,7 @@
               <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
                   <img src="images/reseau.jpeg" alt="Projet 3" class="w-full h-48 object-cover">
                   <div class="p-6">
-                      <h3 class="font-semibold text-lg mb-2">Réseau Social</h3>
+                      <h3 class="font-semibold text-lg mb-2 text-gray-800">Réseau Social</h3>
                       <p class="text-gray-600">Firebase + React</p>
                   </div>
               </div>
@@ -157,7 +205,7 @@
               <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
                   <img src="images/dashboard.jpeg" alt="Projet 4" class="w-full h-48 object-cover">
                   <div class="p-6">
-                      <h3 class="font-semibold text-lg mb-2">Dashboard Admin</h3>
+                      <h3 class="font-semibold text-lg mb-2 text-gray-800">Dashboard Admin</h3>
                       <p class="text-gray-600">Next.js + Chart.js</p>
                   </div>
               </div>
@@ -166,7 +214,7 @@
               <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
                   <img src="images/jeu-mobil.jpeg" alt="Projet 5" class="w-full h-48 object-cover">
                   <div class="p-6">
-                      <h3 class="font-semibold text-lg mb-2">Jeu Mobile</h3>
+                      <h3 class="font-semibold text-lg mb-2 text-gray-800">Jeu Mobile</h3>
                       <p class="text-gray-600">Unity + C#</p>
                   </div>
               </div>
@@ -175,7 +223,7 @@
               <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
                   <img src="images/blog.jpeg" alt="Projet 6" class="w-full h-48 object-cover">
                   <div class="p-6">
-                      <h3 class="font-semibold text-lg mb-2">Blog Personnel</h3>
+                      <h3 class="font-semibold text-lg mb-2 text-gray-800">Blog Personnel</h3>
                       <p class="text-gray-600">Gatsby + Markdown</p>
                   </div>
               </div>
@@ -184,7 +232,7 @@
               <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
                   <img src="images/extension.jpeg" alt="Projet 7" class="w-full h-48 object-cover">
                   <div class="p-6">
-                      <h3 class="font-semibold text-lg mb-2">Extension Chrome</h3>
+                      <h3 class="font-semibold text-lg mb-2 text-gray-800">Extension Chrome</h3>
                       <p class="text-gray-600">JavaScript + Manifest V3</p>
                   </div>
               </div>
@@ -193,7 +241,7 @@
               <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
                   <img src="images/api-rest.jpeg" alt="Projet 8" class="w-full h-48 object-cover">
                   <div class="p-6">
-                      <h3 class="font-semibold text-lg mb-2">API REST</h3>
+                      <h3 class="font-semibold text-lg mb-2 text-gray-800">API REST</h3>
                       <p class="text-gray-600">Node.js + Express</p>
                   </div>
               </div>
@@ -202,7 +250,7 @@
               <div class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 hover:-translate-y-2">
                   <img src="images/Portfolio.jpg" alt="Projet 9" class="w-full h-48 object-cover">
                   <div class="p-6">
-                      <h3 class="font-semibold text-lg mb-2">Portfolio Artistique</h3>
+                      <h3 class="font-semibold text-lg mb-2 text-gray-800">Portfolio Artistique</h3>
                       <p class="text-gray-600">Three.js + GSAP</p>
                   </div>
               </div>
@@ -224,18 +272,18 @@
                 <div class="mb-6">
                     <textarea placeholder="Votre message" rows="4" class="w-full px-4 py-3 rounded-lg bg-indigo-500 border border-indigo-400 placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-white"></textarea>
                 </div>
-                <button type="submit" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition w-full md:w-auto">Envoyer</button>
+                <button type="submit" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold  transition w-full md:w-auto">Envoyer</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-800 text-white py-7">
         <div class="container mx-auto px-6 text-center">
             <p>© 2023 Morgan.k - Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
